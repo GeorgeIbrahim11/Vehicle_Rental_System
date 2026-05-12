@@ -1,17 +1,17 @@
 # 🚗 Vehicle Rental System
 
-A console-based Vehicle Rental Management System built with Java and Maven. The system allows managers to manage a fleet of vehicles (Cars, Bikes, and Vans) and handle customer rentals with full CRUD operations and custom exception handling.
+A console-based Vehicle Rental Management System built with Java. The system allows managers to manage a fleet of vehicles (Cars, Bikes, and Vans) and handle customer rentals with full CRUD operations and custom exception handling.
 
 ---
 
 ## 📋 Table of Contents
 
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [How to Run](#how-to-run)
-- [Classes Overview](#classes-overview)
+- [Features](#-features)
+- [Project Structure](#-project-structure)
+- [Technologies Used](#-technologies-used)
+- [Getting Started](#-getting-started)
+- [How to Run](#-how-to-run)
+- [Classes Overview](#-classes-overview)
 
 ---
 
@@ -30,35 +30,42 @@ A console-based Vehicle Rental Management System built with Java and Maven. The 
 
 ```
 Vehicle_Rental_System/
-├── pom.xml
+├── README.md
 └── src/
-    └── main/
+    ├── main/
+    │   └── java/
+    │       ├── app/
+    │       │   ├── AppLauncher.java
+    │       │   └── RentalSystemApp.java
+    │       ├── model/
+    │       │   ├── Vehicle.java
+    │       │   ├── Car.java
+    │       │   ├── Bike.java
+    │       │   ├── Van.java
+    │       │   ├── Customer.java
+    │       │   └── VipCustomer.java
+    │       ├── service/
+    │       │   ├── VehicleRentalSystem.java
+    │       │   ├── Manager.java
+    │       │   └── Pricing.java
+    │       └── exception/
+    │           ├── CustomerNotFoundException.java
+    │           ├── DuplicateVehicleIdException.java
+    │           └── VehicleNotFoundException.java
+    └── test/
         └── java/
-            └── com/mycompany/vehicle_rental_system/
-                ├── AppLauncher.java
-                ├── RentalSystemApp.java
-                ├── VehicleRentalSystem.java
-                ├── Vehicle.java
-                ├── Car.java
-                ├── Bike.java
-                ├── Van.java
-                ├── Customer.java
-                ├── VipCustomer.java
-                ├── Manager.java
-                ├── Pricing.java
-                ├── CustomerNotFoundException.java
-                ├── DuplicateVehicleIdException.java
-                └── VehicleNotFoundException.java
+            └── test/
+                └── VehicleRentalTest.java
 ```
 
 ---
 
 ## 🛠 Technologies Used
 
-- **Java** (JDK 11+)
-- **Maven** (build & dependency management)
+- Java (JDK 11+)
 - Object-Oriented Programming (Inheritance, Polymorphism, Encapsulation)
 - Custom Exception Handling
+- JUnit (Testing)
 
 ---
 
@@ -68,51 +75,45 @@ Vehicle_Rental_System/
 
 Make sure you have the following installed:
 
-- [Java JDK 11+](https://www.oracle.com/java/technologies/downloads/)
-- [Apache Maven 3.6+](https://maven.apache.org/download.cgi)
-- [Git](https://git-scm.com/)
+- Java JDK 11+
+- Git
 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Vehicle-Rental-System.git
-cd Vehicle-Rental-System
+git clone https://github.com/GeorgeIbrahim11/Vehicle_Rental_System.git
+cd Vehicle_Rental_System
 ```
 
-### Build the Project
+### Compile the Project
 
 ```bash
-mvn clean install
+javac -d out src/main/java/model/*.java src/main/java/exception/*.java src/main/java/service/*.java src/main/java/app/*.java
 ```
 
 ### Run the Application
 
 ```bash
-mvn exec:java -Dexec.mainClass="com.mycompany.vehicle_rental_system.AppLauncher"
-```
-
-Or run the generated JAR:
-
-```bash
-java -jar target/vehicle_rental_system-1.0-SNAPSHOT.jar
+java -cp out app.AppLauncher
 ```
 
 ---
 
 ## 🧩 Classes Overview
 
-| Class | Description |
-|---|---|
-| `Vehicle` | Abstract base class for all vehicle types |
-| `Car`, `Bike`, `Van` | Concrete vehicle subclasses |
-| `Customer` | Represents a standard customer |
-| `VipCustomer` | Extends Customer with VIP privileges |
-| `Manager` | Manages fleet and rental operations |
-| `Pricing` | Handles rental pricing logic |
-| `VehicleRentalSystem` | Core system logic and data management |
-| `RentalSystemApp` | Main application menu/UI |
-| `AppLauncher` | Entry point of the application |
-| `*Exception` classes | Custom exceptions for error handling |
+| Package | Class | Description |
+|---|---|---|
+| `model` | `Vehicle` | Abstract base class for all vehicle types |
+| `model` | `Car`, `Bike`, `Van` | Concrete vehicle subclasses |
+| `model` | `Customer` | Represents a standard customer |
+| `model` | `VipCustomer` | Extends Customer with VIP privileges |
+| `service` | `VehicleRentalSystem` | Core system logic and data management |
+| `service` | `Manager` | Manages fleet and rental operations |
+| `service` | `Pricing` | Handles rental pricing logic |
+| `app` | `RentalSystemApp` | Main application menu/UI |
+| `app` | `AppLauncher` | Entry point of the application |
+| `exception` | `*Exception` | Custom exceptions for error handling |
+| `test` | `VehicleRentalTest` | Unit tests for core functionality |
 
 ---
 
@@ -137,4 +138,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the MIT License.
